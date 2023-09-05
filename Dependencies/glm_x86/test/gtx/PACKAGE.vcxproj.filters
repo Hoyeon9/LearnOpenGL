@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\CMakeFiles\f7c2aa8e99b64b7e98278e30b6383301\PACKAGE_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{C4DF0262-4CC1-37CB-BB59-21B66CEC157D}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

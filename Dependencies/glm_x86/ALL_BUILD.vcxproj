@@ -1,0 +1,960 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ResolveNugetPackages>false</ResolveNugetPackages>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|Win32">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F2FC00ED-2ACE-3ABE-A7DC-1206B72B6D00}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22000.0</WindowsTargetPlatformVersion>
+    <Platform>Win32</Platform>
+    <ProjectName>ALL_BUILD</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\gcoh0\source\repos\OpenGLTutorial\Dependencies\glm-master\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule C:/Users/gcoh0/source/repos/OpenGLTutorial/Dependencies/glm-master/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/gcoh0/source/repos/OpenGLTutorial/Dependencies/glm-master -BC:/Users/gcoh0/source/repos/LearnOpenGL/Dependencies/glm_x86 --check-stamp-file C:/Users/gcoh0/source/repos/LearnOpenGL/Dependencies/glm_x86/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Program Files\CMake\share\cmake-3.25\Modules\BasicConfigVersion-AnyNewerVersion.cmake.in;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CTest.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CTestTargets.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CTestUseLaunchers.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\DartConfiguration.tcl.in;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\WriteBasicConfigVersionFile.cmake;C:\Program Files\CMake\share\cmake-3.25\Templates\CPackConfig.cmake.in;C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\CMakeFiles\3.25.2\CMakeCXXCompiler.cmake;C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\CMakeFiles\3.25.2\CMakeRCCompiler.cmake;C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\CMakeFiles\3.25.2\CMakeSystem.cmake;C:\Users\gcoh0\source\repos\OpenGLTutorial\Dependencies\glm-master\cmake\cmake_uninstall.cmake.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule C:/Users/gcoh0/source/repos/OpenGLTutorial/Dependencies/glm-master/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/gcoh0/source/repos/OpenGLTutorial/Dependencies/glm-master -BC:/Users/gcoh0/source/repos/LearnOpenGL/Dependencies/glm_x86 --check-stamp-file C:/Users/gcoh0/source/repos/LearnOpenGL/Dependencies/glm_x86/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Program Files\CMake\share\cmake-3.25\Modules\BasicConfigVersion-AnyNewerVersion.cmake.in;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CTest.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CTestTargets.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CTestUseLaunchers.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\DartConfiguration.tcl.in;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\WriteBasicConfigVersionFile.cmake;C:\Program Files\CMake\share\cmake-3.25\Templates\CPackConfig.cmake.in;C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\CMakeFiles\3.25.2\CMakeCXXCompiler.cmake;C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\CMakeFiles\3.25.2\CMakeRCCompiler.cmake;C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\CMakeFiles\3.25.2\CMakeSystem.cmake;C:\Users\gcoh0\source\repos\OpenGLTutorial\Dependencies\glm-master\cmake\cmake_uninstall.cmake.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule C:/Users/gcoh0/source/repos/OpenGLTutorial/Dependencies/glm-master/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/gcoh0/source/repos/OpenGLTutorial/Dependencies/glm-master -BC:/Users/gcoh0/source/repos/LearnOpenGL/Dependencies/glm_x86 --check-stamp-file C:/Users/gcoh0/source/repos/LearnOpenGL/Dependencies/glm_x86/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Program Files\CMake\share\cmake-3.25\Modules\BasicConfigVersion-AnyNewerVersion.cmake.in;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CTest.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CTestTargets.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CTestUseLaunchers.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\DartConfiguration.tcl.in;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\WriteBasicConfigVersionFile.cmake;C:\Program Files\CMake\share\cmake-3.25\Templates\CPackConfig.cmake.in;C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\CMakeFiles\3.25.2\CMakeCXXCompiler.cmake;C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\CMakeFiles\3.25.2\CMakeRCCompiler.cmake;C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\CMakeFiles\3.25.2\CMakeSystem.cmake;C:\Users\gcoh0\source\repos\OpenGLTutorial\Dependencies\glm-master\cmake\cmake_uninstall.cmake.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule C:/Users/gcoh0/source/repos/OpenGLTutorial/Dependencies/glm-master/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/gcoh0/source/repos/OpenGLTutorial/Dependencies/glm-master -BC:/Users/gcoh0/source/repos/LearnOpenGL/Dependencies/glm_x86 --check-stamp-file C:/Users/gcoh0/source/repos/LearnOpenGL/Dependencies/glm_x86/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Program Files\CMake\share\cmake-3.25\Modules\BasicConfigVersion-AnyNewerVersion.cmake.in;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakePackageConfigHelpers.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CPack.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CPackComponent.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CTest.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CTestTargets.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\CTestUseLaunchers.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\DartConfiguration.tcl.in;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.25\Modules\WriteBasicConfigVersionFile.cmake;C:\Program Files\CMake\share\cmake-3.25\Templates\CPackConfig.cmake.in;C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\CMakeFiles\3.25.2\CMakeCXXCompiler.cmake;C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\CMakeFiles\3.25.2\CMakeRCCompiler.cmake;C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\CMakeFiles\3.25.2\CMakeSystem.cmake;C:\Users\gcoh0\source\repos\OpenGLTutorial\Dependencies\glm-master\cmake\cmake_uninstall.cmake.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\ZERO_CHECK.vcxproj">
+      <Project>{7683EC2E-C6CF-3AED-8A2F-EBA730041C4F}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\glm\glm_shared.vcxproj">
+      <Project>{26FBFB45-7237-3770-BAAD-7AC584F00812}</Project>
+      <Name>glm_shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\glm\glm_static.vcxproj">
+      <Project>{BBD2C3C0-225B-3AC5-B1FE-6EB40DF8BECD}</Project>
+      <Name>glm_static</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\bug\test-bug_ms_vec_static.vcxproj">
+      <Project>{86FA1791-C4C2-317C-8A7A-730EA09DEE2B}</Project>
+      <Name>test-bug_ms_vec_static</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_cpp_constexpr.vcxproj">
+      <Project>{3EA3DB38-CE2B-3C02-BD6F-A2A0B1BEEC58}</Project>
+      <Name>test-core_cpp_constexpr</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_cpp_defaulted_ctor.vcxproj">
+      <Project>{1D6B0A3B-59A5-3D82-A5FE-97E354C6D7A5}</Project>
+      <Name>test-core_cpp_defaulted_ctor</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_force_aligned_gentypes.vcxproj">
+      <Project>{BE33394B-415E-328C-B77A-90156E6FC059}</Project>
+      <Name>test-core_force_aligned_gentypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_force_arch_unknown.vcxproj">
+      <Project>{1846C620-3B58-3413-8853-DFF66EF404ED}</Project>
+      <Name>test-core_force_arch_unknown</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_force_compiler_unknown.vcxproj">
+      <Project>{8EAD695D-1289-35AC-8A43-FAC3C3047511}</Project>
+      <Name>test-core_force_compiler_unknown</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_force_ctor_init.vcxproj">
+      <Project>{D3FD1210-91AD-3CC5-8CD2-395FE4E8456D}</Project>
+      <Name>test-core_force_ctor_init</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_force_cxx03.vcxproj">
+      <Project>{8370D2F3-A61D-33DC-A3C4-B34DA71334D5}</Project>
+      <Name>test-core_force_cxx03</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_force_cxx98.vcxproj">
+      <Project>{6FE53ACD-3B74-36FE-9286-1B723C0C7E01}</Project>
+      <Name>test-core_force_cxx98</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_force_cxx_unknown.vcxproj">
+      <Project>{3FF2B5E8-6276-3CAD-8E48-1305DD963E92}</Project>
+      <Name>test-core_force_cxx_unknown</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_force_explicit_ctor.vcxproj">
+      <Project>{B94AED4B-08EB-32CB-8810-D608603B7F00}</Project>
+      <Name>test-core_force_explicit_ctor</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_force_inline.vcxproj">
+      <Project>{A39FC501-F85C-3AED-8096-1280482A85EF}</Project>
+      <Name>test-core_force_inline</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_force_platform_unknown.vcxproj">
+      <Project>{95E3F130-6EC7-36B7-B409-BF4A285BEA08}</Project>
+      <Name>test-core_force_platform_unknown</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_force_pure.vcxproj">
+      <Project>{4BD243B7-1C8E-3421-8EA0-94FED0E29A7F}</Project>
+      <Name>test-core_force_pure</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_force_quat_xyzw.vcxproj">
+      <Project>{00B85E06-B4C3-3741-AADE-AC05243467A1}</Project>
+      <Name>test-core_force_quat_xyzw</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_force_unrestricted_gentype.vcxproj">
+      <Project>{5432FACD-813D-3391-897E-2960CAE34EC7}</Project>
+      <Name>test-core_force_unrestricted_gentype</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_force_xyzw_only.vcxproj">
+      <Project>{E1D4D066-A520-3960-86F4-79269B97B9F0}</Project>
+      <Name>test-core_force_xyzw_only</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_func_common.vcxproj">
+      <Project>{8C3CE7EA-6051-3E5B-8164-34D847282902}</Project>
+      <Name>test-core_func_common</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_func_exponential.vcxproj">
+      <Project>{F582E09A-CD80-33C1-897A-7391052795AB}</Project>
+      <Name>test-core_func_exponential</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_func_geometric.vcxproj">
+      <Project>{D711BC24-A503-3837-89A5-927A6DEB7471}</Project>
+      <Name>test-core_func_geometric</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_func_integer.vcxproj">
+      <Project>{95B02B11-6BFB-3362-B407-DC758BF8D7FE}</Project>
+      <Name>test-core_func_integer</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_func_integer_bit_count.vcxproj">
+      <Project>{F5F0D025-2E8A-386E-8326-BD6D3F24229E}</Project>
+      <Name>test-core_func_integer_bit_count</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_func_integer_find_lsb.vcxproj">
+      <Project>{12DFCFD2-1FC7-3A80-AC12-9316CFAA0AA6}</Project>
+      <Name>test-core_func_integer_find_lsb</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_func_integer_find_msb.vcxproj">
+      <Project>{B7EE63A9-A810-3A3A-958F-4464F49E0E44}</Project>
+      <Name>test-core_func_integer_find_msb</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_func_matrix.vcxproj">
+      <Project>{047FED15-247E-3CBE-BEC0-CA4E1A0CB923}</Project>
+      <Name>test-core_func_matrix</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_func_noise.vcxproj">
+      <Project>{5A34035E-ECBC-32A7-AF5A-38DC11BD8770}</Project>
+      <Name>test-core_func_noise</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_func_packing.vcxproj">
+      <Project>{512E06BB-7321-3355-BAFB-A456D1F777BF}</Project>
+      <Name>test-core_func_packing</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_func_swizzle.vcxproj">
+      <Project>{9F399C77-0CAC-3778-BB09-C28F49801405}</Project>
+      <Name>test-core_func_swizzle</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_func_trigonometric.vcxproj">
+      <Project>{0FEE8895-1EEB-3A6C-8A95-304ACC6C4DD1}</Project>
+      <Name>test-core_func_trigonometric</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_func_vector_relational.vcxproj">
+      <Project>{E28F9E69-1FF7-3232-A809-8B87D3D58519}</Project>
+      <Name>test-core_func_vector_relational</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_setup_force_cxx98.vcxproj">
+      <Project>{38D9C6B7-176F-3F38-AA0D-33645F5A6070}</Project>
+      <Name>test-core_setup_force_cxx98</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_setup_force_size_t_length.vcxproj">
+      <Project>{2DB59F45-6859-3D48-AA62-E07AC95B1AB8}</Project>
+      <Name>test-core_setup_force_size_t_length</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_setup_message.vcxproj">
+      <Project>{87BDF1DA-76A1-3AD0-89F6-92194CA03173}</Project>
+      <Name>test-core_setup_message</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_setup_platform_unknown.vcxproj">
+      <Project>{10CBB8A7-366D-3757-B79E-D21943F592D2}</Project>
+      <Name>test-core_setup_platform_unknown</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_setup_precision.vcxproj">
+      <Project>{BCEEEFFF-A141-339E-A1BC-32DBD2FFB56F}</Project>
+      <Name>test-core_setup_precision</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_type_aligned.vcxproj">
+      <Project>{AAC5446D-E5AE-3670-A406-0FE25B3A24F0}</Project>
+      <Name>test-core_type_aligned</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_type_cast.vcxproj">
+      <Project>{9FFEB517-4FD7-320C-829B-E7DB6A6F2882}</Project>
+      <Name>test-core_type_cast</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_type_ctor.vcxproj">
+      <Project>{BCAB41FC-66B7-358C-9184-33703A803744}</Project>
+      <Name>test-core_type_ctor</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_type_int.vcxproj">
+      <Project>{1BA8BF4B-FB17-3B38-A58B-8753A3B1548B}</Project>
+      <Name>test-core_type_int</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_type_length.vcxproj">
+      <Project>{0F2B256A-6EA3-3D58-822D-9D8C8D06AA3F}</Project>
+      <Name>test-core_type_length</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_type_mat2x2.vcxproj">
+      <Project>{C6FA46BC-315C-36DB-9AD7-6005F34C1995}</Project>
+      <Name>test-core_type_mat2x2</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_type_mat2x3.vcxproj">
+      <Project>{C9B5335C-4DF3-3CF1-AA37-B4208A6CF5D0}</Project>
+      <Name>test-core_type_mat2x3</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_type_mat2x4.vcxproj">
+      <Project>{2D5CACB6-BD70-3421-B03E-90B2E34C2F14}</Project>
+      <Name>test-core_type_mat2x4</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_type_mat3x2.vcxproj">
+      <Project>{B3B0BEC4-267A-317B-8FCF-008D97AF6157}</Project>
+      <Name>test-core_type_mat3x2</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_type_mat3x3.vcxproj">
+      <Project>{3790C2C4-95EC-39EA-8D09-0339D9960C10}</Project>
+      <Name>test-core_type_mat3x3</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_type_mat3x4.vcxproj">
+      <Project>{A408F9E0-9193-3396-82E6-360B615045C9}</Project>
+      <Name>test-core_type_mat3x4</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_type_mat4x2.vcxproj">
+      <Project>{60328B58-1A8C-38F5-9D49-C4D4F0C5560F}</Project>
+      <Name>test-core_type_mat4x2</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_type_mat4x3.vcxproj">
+      <Project>{27106B84-B20F-327D-AAD1-E2841EAC06D0}</Project>
+      <Name>test-core_type_mat4x3</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_type_mat4x4.vcxproj">
+      <Project>{89D187FA-52F9-3BB0-85F1-BCE52E88635D}</Project>
+      <Name>test-core_type_mat4x4</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_type_vec1.vcxproj">
+      <Project>{05C581E3-E267-3945-AF3E-F09B8B1F247E}</Project>
+      <Name>test-core_type_vec1</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_type_vec2.vcxproj">
+      <Project>{EB421D39-681B-3AC6-835A-01951B74CA84}</Project>
+      <Name>test-core_type_vec2</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_type_vec3.vcxproj">
+      <Project>{3FCB997B-757A-38C8-82A5-4F1F4E67CF02}</Project>
+      <Name>test-core_type_vec3</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\core\test-core_type_vec4.vcxproj">
+      <Project>{26331F6A-9DD5-3092-84EE-89C7F4222D2F}</Project>
+      <Name>test-core_type_vec4</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_matrix_common.vcxproj">
+      <Project>{907EAEF3-11F1-30CE-B762-AE126DC08C42}</Project>
+      <Name>test-ext_matrix_common</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_matrix_int2x2_sized.vcxproj">
+      <Project>{0F7A7297-691F-3AB1-BB46-3AC4AE8A2CA2}</Project>
+      <Name>test-ext_matrix_int2x2_sized</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_matrix_int2x3_sized.vcxproj">
+      <Project>{82FF7378-F92C-3E0A-83CD-6563DA37A3A8}</Project>
+      <Name>test-ext_matrix_int2x3_sized</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_matrix_int2x4_sized.vcxproj">
+      <Project>{9E87203B-2111-3BD1-BCF5-103F3FE9693B}</Project>
+      <Name>test-ext_matrix_int2x4_sized</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_matrix_int3x2_sized.vcxproj">
+      <Project>{0E026A81-B5CD-38DD-8C65-3436F7F9C5D5}</Project>
+      <Name>test-ext_matrix_int3x2_sized</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_matrix_int3x3_sized.vcxproj">
+      <Project>{91FFEE09-3033-3D37-AFD6-234EEBD44CF4}</Project>
+      <Name>test-ext_matrix_int3x3_sized</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_matrix_int3x4_sized.vcxproj">
+      <Project>{47C8A34D-00E4-355F-BDB9-643E2CA9FC82}</Project>
+      <Name>test-ext_matrix_int3x4_sized</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_matrix_int4x2_sized.vcxproj">
+      <Project>{0128A37C-3097-399B-9088-B2E1F0D40E83}</Project>
+      <Name>test-ext_matrix_int4x2_sized</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_matrix_int4x3_sized.vcxproj">
+      <Project>{E604278B-9182-3E41-AF07-3E447633B661}</Project>
+      <Name>test-ext_matrix_int4x3_sized</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_matrix_int4x4_sized.vcxproj">
+      <Project>{AEB5D86D-D1C9-352F-BFE0-9A36F3095787}</Project>
+      <Name>test-ext_matrix_int4x4_sized</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_matrix_integer.vcxproj">
+      <Project>{E3D667D2-942D-3E29-9519-CB8D4B868C37}</Project>
+      <Name>test-ext_matrix_integer</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_matrix_relational.vcxproj">
+      <Project>{EC8393F4-88EA-3D3D-ABF1-9F6C9397662E}</Project>
+      <Name>test-ext_matrix_relational</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_matrix_transform.vcxproj">
+      <Project>{88310484-5D27-352C-B4D6-4E55414DF838}</Project>
+      <Name>test-ext_matrix_transform</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_matrix_uint2x2_sized.vcxproj">
+      <Project>{9DDF63A5-87A2-3E38-83D8-CA82251B869F}</Project>
+      <Name>test-ext_matrix_uint2x2_sized</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_matrix_uint2x3_sized.vcxproj">
+      <Project>{1828A89B-35ED-3CCC-BB27-7C51585B1BDA}</Project>
+      <Name>test-ext_matrix_uint2x3_sized</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_matrix_uint2x4_sized.vcxproj">
+      <Project>{2829080C-6894-345C-928B-C722C6233362}</Project>
+      <Name>test-ext_matrix_uint2x4_sized</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_matrix_uint3x2_sized.vcxproj">
+      <Project>{56256C0E-1B43-35C3-96CF-F6A3D9877DAF}</Project>
+      <Name>test-ext_matrix_uint3x2_sized</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_matrix_uint3x3_sized.vcxproj">
+      <Project>{2240768C-8B33-3C95-9F77-3369BE453ADA}</Project>
+      <Name>test-ext_matrix_uint3x3_sized</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_matrix_uint3x4_sized.vcxproj">
+      <Project>{F8F01711-136B-339A-AAA7-58EFDF1DCCB3}</Project>
+      <Name>test-ext_matrix_uint3x4_sized</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_matrix_uint4x2_sized.vcxproj">
+      <Project>{B3C9F00B-17A8-332D-B02A-1AC3089D2B92}</Project>
+      <Name>test-ext_matrix_uint4x2_sized</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_matrix_uint4x3_sized.vcxproj">
+      <Project>{BED63EDB-23CB-3ADA-B1DF-AEBDD23ADFF4}</Project>
+      <Name>test-ext_matrix_uint4x3_sized</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_matrix_uint4x4_sized.vcxproj">
+      <Project>{DA6A5ECC-794C-38EF-9785-45EB3BE52E1A}</Project>
+      <Name>test-ext_matrix_uint4x4_sized</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_quaternion_common.vcxproj">
+      <Project>{445D250D-4B0D-3492-A686-6BC2F8425305}</Project>
+      <Name>test-ext_quaternion_common</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_quaternion_exponential.vcxproj">
+      <Project>{BC341F2E-8EEA-38BA-81FE-FD683E18CEE8}</Project>
+      <Name>test-ext_quaternion_exponential</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_quaternion_geometric.vcxproj">
+      <Project>{D30FBA65-82F6-3DF6-9E41-00770F2A8E67}</Project>
+      <Name>test-ext_quaternion_geometric</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_quaternion_relational.vcxproj">
+      <Project>{215AA748-03D6-3162-B743-DAEF7A553057}</Project>
+      <Name>test-ext_quaternion_relational</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_quaternion_transform.vcxproj">
+      <Project>{1F77594E-EAEC-3F66-98C8-044D6C94BA37}</Project>
+      <Name>test-ext_quaternion_transform</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_quaternion_trigonometric.vcxproj">
+      <Project>{23CC7CD7-EEBC-362B-8827-A7F2686253EC}</Project>
+      <Name>test-ext_quaternion_trigonometric</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_quaternion_type.vcxproj">
+      <Project>{F18D8329-3BA9-33A0-8121-B032D8BAEBD3}</Project>
+      <Name>test-ext_quaternion_type</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_scalar_common.vcxproj">
+      <Project>{8C6559D5-B178-37C5-9C50-95E5334764F7}</Project>
+      <Name>test-ext_scalar_common</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_scalar_constants.vcxproj">
+      <Project>{9689ABA9-B54F-300C-AACA-6DB8D1DC1AEC}</Project>
+      <Name>test-ext_scalar_constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_scalar_int_sized.vcxproj">
+      <Project>{EF331A38-A435-34C2-8A06-117FEE665CD6}</Project>
+      <Name>test-ext_scalar_int_sized</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_scalar_integer.vcxproj">
+      <Project>{0C948390-8E96-3AB1-8BA5-B28AE6012467}</Project>
+      <Name>test-ext_scalar_integer</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_scalar_reciprocal.vcxproj">
+      <Project>{98238A26-EA00-34A7-A9B7-8F9CE37EC22C}</Project>
+      <Name>test-ext_scalar_reciprocal</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_scalar_relational.vcxproj">
+      <Project>{301838FC-7278-3893-A070-C3DBF24E20EF}</Project>
+      <Name>test-ext_scalar_relational</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_scalar_uint_sized.vcxproj">
+      <Project>{C08858C1-21CB-3E88-8545-A983CFE8CC17}</Project>
+      <Name>test-ext_scalar_uint_sized</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_scalar_ulp.vcxproj">
+      <Project>{89A8A632-3B47-35DB-A325-D7EBA664F1EF}</Project>
+      <Name>test-ext_scalar_ulp</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_vec1.vcxproj">
+      <Project>{798EC7B8-096C-39CC-AAD4-06E0692CB4BE}</Project>
+      <Name>test-ext_vec1</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_vector_bool1.vcxproj">
+      <Project>{A3612BF5-2E31-3D42-B7F5-997009B94EB6}</Project>
+      <Name>test-ext_vector_bool1</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_vector_common.vcxproj">
+      <Project>{400C83E7-FAE5-35BA-BF6C-6A31AD2ABA0C}</Project>
+      <Name>test-ext_vector_common</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_vector_iec559.vcxproj">
+      <Project>{8CC8D00D-9415-3B2C-8901-D019617CF1CC}</Project>
+      <Name>test-ext_vector_iec559</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_vector_int1_sized.vcxproj">
+      <Project>{C438B7C0-E8AA-3E56-97AE-BAACAAC88417}</Project>
+      <Name>test-ext_vector_int1_sized</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_vector_int2_sized.vcxproj">
+      <Project>{B4706AED-95A0-3337-9989-D02483A5D19F}</Project>
+      <Name>test-ext_vector_int2_sized</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_vector_int3_sized.vcxproj">
+      <Project>{0742A216-F1A0-331E-8F71-34046FBF6AAE}</Project>
+      <Name>test-ext_vector_int3_sized</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_vector_int4_sized.vcxproj">
+      <Project>{B65C2BC0-CCF0-3480-8015-0DE0302391AC}</Project>
+      <Name>test-ext_vector_int4_sized</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_vector_integer.vcxproj">
+      <Project>{DAD25F4C-A5DE-32E5-AA33-55259E58C829}</Project>
+      <Name>test-ext_vector_integer</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_vector_integer_sized.vcxproj">
+      <Project>{E4942610-D90C-3101-B129-63CE467F051A}</Project>
+      <Name>test-ext_vector_integer_sized</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_vector_reciprocal.vcxproj">
+      <Project>{537D9E38-9034-316D-ACEC-59E5B055CAF0}</Project>
+      <Name>test-ext_vector_reciprocal</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_vector_relational.vcxproj">
+      <Project>{993A94A5-C35E-3049-80E0-3FEB7F515694}</Project>
+      <Name>test-ext_vector_relational</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_vector_uint1_sized.vcxproj">
+      <Project>{950A8DC8-174C-3BE6-9E4D-312C44987366}</Project>
+      <Name>test-ext_vector_uint1_sized</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_vector_uint2_sized.vcxproj">
+      <Project>{896F1B37-707B-3E6A-8592-718725401360}</Project>
+      <Name>test-ext_vector_uint2_sized</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_vector_uint3_sized.vcxproj">
+      <Project>{D0DB493A-AF04-38D2-952F-96508B1CE4EF}</Project>
+      <Name>test-ext_vector_uint3_sized</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_vector_uint4_sized.vcxproj">
+      <Project>{EE61572A-EB68-3CB5-AC4F-747362DF802E}</Project>
+      <Name>test-ext_vector_uint4_sized</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\ext\test-ext_vector_ulp.vcxproj">
+      <Project>{627ADCD5-738C-365A-8D21-29D8A35D2860}</Project>
+      <Name>test-ext_vector_ulp</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtc\test-gtc_bitfield.vcxproj">
+      <Project>{7F42D0E5-4B49-3853-BA43-52C66D18D0FE}</Project>
+      <Name>test-gtc_bitfield</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtc\test-gtc_color_space.vcxproj">
+      <Project>{327E3F67-6A3A-323C-95E2-132F36550D36}</Project>
+      <Name>test-gtc_color_space</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtc\test-gtc_constants.vcxproj">
+      <Project>{D9DD912F-A5E4-3176-A7E4-27F6C6CFBA92}</Project>
+      <Name>test-gtc_constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtc\test-gtc_epsilon.vcxproj">
+      <Project>{90CB8CA1-F0E6-380D-965B-CF4336A31509}</Project>
+      <Name>test-gtc_epsilon</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtc\test-gtc_integer.vcxproj">
+      <Project>{CF9175EE-11BE-35A5-B6ED-0E7A2B6FB1EC}</Project>
+      <Name>test-gtc_integer</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtc\test-gtc_matrix_access.vcxproj">
+      <Project>{C7DE34CD-B33F-3048-B5FA-42691B66BF0A}</Project>
+      <Name>test-gtc_matrix_access</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtc\test-gtc_matrix_integer.vcxproj">
+      <Project>{58449675-B0D0-3262-9311-70EA7845E27C}</Project>
+      <Name>test-gtc_matrix_integer</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtc\test-gtc_matrix_inverse.vcxproj">
+      <Project>{A4A60769-9961-35AA-97FF-A2D1C24F3A30}</Project>
+      <Name>test-gtc_matrix_inverse</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtc\test-gtc_matrix_transform.vcxproj">
+      <Project>{D5A58C74-E671-3A68-9849-FD62212A67C3}</Project>
+      <Name>test-gtc_matrix_transform</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtc\test-gtc_noise.vcxproj">
+      <Project>{BFA31914-681D-32A3-B0FA-4F163724B6B5}</Project>
+      <Name>test-gtc_noise</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtc\test-gtc_packing.vcxproj">
+      <Project>{50905347-FB92-3692-B143-13B4D983353D}</Project>
+      <Name>test-gtc_packing</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtc\test-gtc_quaternion.vcxproj">
+      <Project>{868F73D8-F201-38EB-BED7-121D2A185AC6}</Project>
+      <Name>test-gtc_quaternion</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtc\test-gtc_random.vcxproj">
+      <Project>{9D7D3AB6-5512-39F0-9F15-100DCD2C9571}</Project>
+      <Name>test-gtc_random</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtc\test-gtc_reciprocal.vcxproj">
+      <Project>{2E8D128A-6562-30DF-B1D2-AB9942AF7F7F}</Project>
+      <Name>test-gtc_reciprocal</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtc\test-gtc_round.vcxproj">
+      <Project>{3F821752-6076-3186-9304-527971DFB26C}</Project>
+      <Name>test-gtc_round</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtc\test-gtc_type_aligned.vcxproj">
+      <Project>{3ECC8D5B-62EA-3C8E-8D98-758AD9B02F31}</Project>
+      <Name>test-gtc_type_aligned</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtc\test-gtc_type_precision.vcxproj">
+      <Project>{DD7C3C13-5624-3C10-AB5D-1181A9F1101F}</Project>
+      <Name>test-gtc_type_precision</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtc\test-gtc_type_ptr.vcxproj">
+      <Project>{3BAF6DBF-83CF-3629-818B-3E9D5F6ECE84}</Project>
+      <Name>test-gtc_type_ptr</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtc\test-gtc_ulp.vcxproj">
+      <Project>{A59CDC65-A3F1-3F30-9348-C01CC79AB356}</Project>
+      <Name>test-gtc_ulp</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtc\test-gtc_vec1.vcxproj">
+      <Project>{D09764EF-7900-35FB-A3B2-1F237210FF9B}</Project>
+      <Name>test-gtc_vec1</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx.vcxproj">
+      <Project>{5570F062-7F56-3A92-AE75-8C53EE887D38}</Project>
+      <Name>test-gtx</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_associated_min_max.vcxproj">
+      <Project>{0C55629B-EBF6-31AA-908F-955ECD789C7A}</Project>
+      <Name>test-gtx_associated_min_max</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_closest_point.vcxproj">
+      <Project>{7AB3F67E-7D72-3E8A-86AE-85BCE8D1D5E5}</Project>
+      <Name>test-gtx_closest_point</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_color_encoding.vcxproj">
+      <Project>{3F512446-ADF4-330A-BDF0-2ACDBF542235}</Project>
+      <Name>test-gtx_color_encoding</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_color_space.vcxproj">
+      <Project>{00D3A895-47CA-3786-920A-F45D1A118B5F}</Project>
+      <Name>test-gtx_color_space</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_color_space_YCoCg.vcxproj">
+      <Project>{40DEBDFA-E165-3E88-8FAC-B50DE341675F}</Project>
+      <Name>test-gtx_color_space_YCoCg</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_common.vcxproj">
+      <Project>{164848FC-3264-372F-9E73-9E3845245BF8}</Project>
+      <Name>test-gtx_common</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_compatibility.vcxproj">
+      <Project>{6861C4EB-E18D-3A21-BCD8-1CA6D1E05C6E}</Project>
+      <Name>test-gtx_compatibility</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_component_wise.vcxproj">
+      <Project>{E64BD16B-7776-3ADC-A91B-64A022DD8E4B}</Project>
+      <Name>test-gtx_component_wise</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_dual_quaternion.vcxproj">
+      <Project>{336B9C8C-E9CA-3E59-8FE5-4A41E636A4E6}</Project>
+      <Name>test-gtx_dual_quaternion</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_easing.vcxproj">
+      <Project>{653B0B1A-1464-3A67-8D20-7EA91F065897}</Project>
+      <Name>test-gtx_easing</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_euler_angle.vcxproj">
+      <Project>{78DB1A13-D4DA-347C-8D91-6F077BCB7AD2}</Project>
+      <Name>test-gtx_euler_angle</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_extend.vcxproj">
+      <Project>{BE226CE1-2410-38DB-AFD9-E1FB5360B467}</Project>
+      <Name>test-gtx_extend</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_extended_min_max.vcxproj">
+      <Project>{792673E7-8FBC-37A1-8D29-483EE52632A9}</Project>
+      <Name>test-gtx_extended_min_max</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_exterior_product.vcxproj">
+      <Project>{46BE8E08-3C2C-3CE3-81D4-EEA930787D7F}</Project>
+      <Name>test-gtx_exterior_product</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_fast_exponential.vcxproj">
+      <Project>{0071330D-FBD8-3AC5-9AF2-9F0F3326B978}</Project>
+      <Name>test-gtx_fast_exponential</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_fast_square_root.vcxproj">
+      <Project>{FE180019-980E-39F1-A233-0264510B6A71}</Project>
+      <Name>test-gtx_fast_square_root</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_fast_trigonometry.vcxproj">
+      <Project>{B4C2889A-F199-37C9-B6E1-DEF696BFE946}</Project>
+      <Name>test-gtx_fast_trigonometry</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_functions.vcxproj">
+      <Project>{5DB1C63F-06D8-385E-88AA-65CFAC994FAA}</Project>
+      <Name>test-gtx_functions</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_gradient_paint.vcxproj">
+      <Project>{7B4EE468-6A16-3A1B-84D3-B619EFCEE538}</Project>
+      <Name>test-gtx_gradient_paint</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_handed_coordinate_space.vcxproj">
+      <Project>{8CFDCAF7-850D-365B-BEFA-D3F4091DB856}</Project>
+      <Name>test-gtx_handed_coordinate_space</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_hash.vcxproj">
+      <Project>{AD24A46B-72C0-33B2-B75B-678C51CAA478}</Project>
+      <Name>test-gtx_hash</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_integer.vcxproj">
+      <Project>{0F03C1C8-2F65-3A86-9C49-A0AF864BC626}</Project>
+      <Name>test-gtx_integer</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_intersect.vcxproj">
+      <Project>{76C3AF4C-908F-3939-B7FB-7DDCDCFE74CE}</Project>
+      <Name>test-gtx_intersect</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_io.vcxproj">
+      <Project>{DA574F50-0A3D-3EAD-A04C-6A7C7A7B747C}</Project>
+      <Name>test-gtx_io</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_load.vcxproj">
+      <Project>{7AF7DFDB-EC42-3AB1-B4A2-3DF9013E10A3}</Project>
+      <Name>test-gtx_load</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_log_base.vcxproj">
+      <Project>{81C3090F-E1C3-3DB7-A1C6-15B595E35605}</Project>
+      <Name>test-gtx_log_base</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_matrix_cross_product.vcxproj">
+      <Project>{3F3FE994-8B18-3347-896D-174530A5DC7C}</Project>
+      <Name>test-gtx_matrix_cross_product</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_matrix_decompose.vcxproj">
+      <Project>{D779FE7E-715D-36E8-9F64-5A540B3C8C7F}</Project>
+      <Name>test-gtx_matrix_decompose</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_matrix_factorisation.vcxproj">
+      <Project>{586F00A1-6FAC-371A-8AF5-0735B4941524}</Project>
+      <Name>test-gtx_matrix_factorisation</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_matrix_interpolation.vcxproj">
+      <Project>{D4E230FC-4F69-3E1B-9CB6-7302FF8366E6}</Project>
+      <Name>test-gtx_matrix_interpolation</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_matrix_major_storage.vcxproj">
+      <Project>{5C3E9C39-1580-3E84-85BD-073F93AB2E77}</Project>
+      <Name>test-gtx_matrix_major_storage</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_matrix_operation.vcxproj">
+      <Project>{D885A788-9D33-3A58-B1EC-A4BD85B88690}</Project>
+      <Name>test-gtx_matrix_operation</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_matrix_query.vcxproj">
+      <Project>{29EF7EE1-E352-3868-A4CF-67B98ABD54F7}</Project>
+      <Name>test-gtx_matrix_query</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_matrix_transform_2d.vcxproj">
+      <Project>{A40A80C3-8CEE-354E-B8F6-4085FAF5CB48}</Project>
+      <Name>test-gtx_matrix_transform_2d</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_norm.vcxproj">
+      <Project>{ED1EA05E-6BD7-3B57-8D14-9F033D93045C}</Project>
+      <Name>test-gtx_norm</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_normal.vcxproj">
+      <Project>{26C7A7CA-4092-3EA1-A00A-AB0A182A5584}</Project>
+      <Name>test-gtx_normal</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_normalize_dot.vcxproj">
+      <Project>{E0274DEE-92AB-3184-B172-94D2BF8C4EDE}</Project>
+      <Name>test-gtx_normalize_dot</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_number_precision.vcxproj">
+      <Project>{82ACFBE4-245A-3FC5-9BBD-D5D30DD53A17}</Project>
+      <Name>test-gtx_number_precision</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_optimum_pow.vcxproj">
+      <Project>{567B26ED-0A11-3DBE-A822-D6C638381C8A}</Project>
+      <Name>test-gtx_optimum_pow</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_orthonormalize.vcxproj">
+      <Project>{62444B84-5618-3E30-92AA-78C7B1E9C8F8}</Project>
+      <Name>test-gtx_orthonormalize</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_pca.vcxproj">
+      <Project>{A4C91F0D-C115-37FB-AD26-75C85A2BD3E9}</Project>
+      <Name>test-gtx_pca</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_perpendicular.vcxproj">
+      <Project>{560893AB-CB0D-3BC9-9789-08915FF81FEE}</Project>
+      <Name>test-gtx_perpendicular</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_polar_coordinates.vcxproj">
+      <Project>{1F5BFB58-D6E2-35E8-8E33-E2EFE9C7CE62}</Project>
+      <Name>test-gtx_polar_coordinates</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_projection.vcxproj">
+      <Project>{17B729BC-1CAC-3015-BC09-F241D60818EC}</Project>
+      <Name>test-gtx_projection</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_quaternion.vcxproj">
+      <Project>{FE250D71-7C54-3EAB-A487-8E48E3D55F1F}</Project>
+      <Name>test-gtx_quaternion</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_range.vcxproj">
+      <Project>{609A9E95-42F9-3E59-9C04-21BF22F4DDB9}</Project>
+      <Name>test-gtx_range</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_rotate_normalized_axis.vcxproj">
+      <Project>{B625D0C1-6A30-33EE-80A0-2D2D64FF92C7}</Project>
+      <Name>test-gtx_rotate_normalized_axis</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_rotate_vector.vcxproj">
+      <Project>{FBB455C8-755A-3AF1-8C2C-E28A5939422B}</Project>
+      <Name>test-gtx_rotate_vector</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_scalar_multiplication.vcxproj">
+      <Project>{EC534CF3-A670-3467-8F81-273F31D70A73}</Project>
+      <Name>test-gtx_scalar_multiplication</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_scalar_relational.vcxproj">
+      <Project>{39766B2A-0574-35C4-9C5C-1C8988EB2BE0}</Project>
+      <Name>test-gtx_scalar_relational</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_spline.vcxproj">
+      <Project>{D2B14F57-BB76-3D60-A6F1-D37BDFFF33E2}</Project>
+      <Name>test-gtx_spline</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_string_cast.vcxproj">
+      <Project>{E539C578-8F57-39F9-8902-C30B4FF32CF2}</Project>
+      <Name>test-gtx_string_cast</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_texture.vcxproj">
+      <Project>{3A51E75E-D848-347A-B89E-72552DBFB69A}</Project>
+      <Name>test-gtx_texture</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_type_aligned.vcxproj">
+      <Project>{48E37A30-FC16-3781-A161-2010C23628D0}</Project>
+      <Name>test-gtx_type_aligned</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_type_trait.vcxproj">
+      <Project>{34A5E4F9-B75F-3EA7-B2B4-1227A2DF88A7}</Project>
+      <Name>test-gtx_type_trait</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_vec_swizzle.vcxproj">
+      <Project>{E54F6580-4BA9-3876-8E24-F3AC7A8195A6}</Project>
+      <Name>test-gtx_vec_swizzle</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_vector_angle.vcxproj">
+      <Project>{21B8203D-45A5-32EB-BD78-8D2E70FECA00}</Project>
+      <Name>test-gtx_vector_angle</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_vector_query.vcxproj">
+      <Project>{8EA9DF70-4302-3C44-B1D3-B19909156A1F}</Project>
+      <Name>test-gtx_vector_query</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\gtx\test-gtx_wrap.vcxproj">
+      <Project>{15B00348-A0B0-31CF-A01A-B2CF41500F12}</Project>
+      <Name>test-gtx_wrap</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\perf\test-perf_matrix_div.vcxproj">
+      <Project>{4D4DBCCD-5A87-3417-A79D-825CE1A0B217}</Project>
+      <Name>test-perf_matrix_div</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\perf\test-perf_matrix_inverse.vcxproj">
+      <Project>{9E402FA7-ED62-35B2-9831-2E371D4C8356}</Project>
+      <Name>test-perf_matrix_inverse</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\perf\test-perf_matrix_mul.vcxproj">
+      <Project>{46A0AF40-6285-34D1-807D-3B8CA11EF586}</Project>
+      <Name>test-perf_matrix_mul</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\perf\test-perf_matrix_mul_vector.vcxproj">
+      <Project>{51395B71-69E7-3368-B72D-61573447CBFD}</Project>
+      <Name>test-perf_matrix_mul_vector</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\perf\test-perf_matrix_transpose.vcxproj">
+      <Project>{C0A1ED89-B47B-3E66-8D8E-C0A24DC7DCA7}</Project>
+      <Name>test-perf_matrix_transpose</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\gcoh0\source\repos\LearnOpenGL\Dependencies\glm_x86\test\perf\test-perf_vector_mul_matrix.vcxproj">
+      <Project>{2383E0BC-7419-3463-A526-B3AFA440A751}</Project>
+      <Name>test-perf_vector_mul_matrix</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

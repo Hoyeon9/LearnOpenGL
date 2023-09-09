@@ -30,6 +30,9 @@ float yaw = -90.0, pitch;
 bool firstMouse = true;
 float fov = 45.0f;
 
+int page = 0;
+const int MAX_PAGE = 8;
+
 int main() {
 	//---Creating window(from initialize GLFW~~)---
 	glfwInit(); //initilalizes GLFW
@@ -70,18 +73,20 @@ int main() {
 	unsigned int quadShader = loadShader("quad.vs", "quad.fs");
 
 	//unsigned int renderProgram = loadShader("render.vs", "render.fs");
-	unsigned int renderProgram = loadShader("render.vs", "renderMap.fs");
+	//unsigned int renderProgram = loadShader("render.vs", "renderMap.fs");
+	unsigned int renderProgram = loadShader("render.vs", "renderGLB.fs");
 	glUseProgram(renderProgram);
 	glUniform1i(glGetUniformLocation(renderProgram, ("irradianceMap")), 0);
 	glUniform1i(glGetUniformLocation(renderProgram, ("prefilterMap")), 1);
 	glUniform1i(glGetUniformLocation(renderProgram, ("brdfLUT")), 2);
 	//using map
-	glUniform1i(glGetUniformLocation(renderProgram, ("albedoMap")), 3);
-	glUniform1i(glGetUniformLocation(renderProgram, ("normalMap")), 4);
-	glUniform1i(glGetUniformLocation(renderProgram, ("metallicMap")), 5);
-	glUniform1i(glGetUniformLocation(renderProgram, ("roughnessMap")), 6);
+	//glUniform1i(glGetUniformLocation(renderProgram, ("albedoMap")), 3);
+	//glUniform1i(glGetUniformLocation(renderProgram, ("normalMap")), 4);
+	//glUniform1i(glGetUniformLocation(renderProgram, ("metallicMap")), 5);
+	//glUniform1i(glGetUniformLocation(renderProgram, ("roughnessMap")), 6);
 	//glUniform1i(glGetUniformLocation(renderProgram, ("aoMap")), 7);
 
+	/*
 	string mapPath = "textures/gold";
 	unsigned int albedoMap = loadTexture((mapPath + "/albedo.png").c_str());
 	cout << "albedo\n";
@@ -91,7 +96,10 @@ int main() {
 	cout << "metallic\n";
 	unsigned int roughnessMap = loadTexture((mapPath + "/roughness.png").c_str());
 	cout << "roughness\n";
-	//unsigned int aoMap = loadTexture((mapPath + "/ao.png").c_str());
+	//unsigned int aoMap = loadTexture((mapPath + "/ao.png").c_str());*/
+
+	string modelPath = "models/0/drawer1.glb";
+	Model loadedModel = Model(modelPath);
 
 	float cubeVertices[] = {
 		-0.5f, -0.5f, -0.5f,  0.0f, 0.0f,  0.0f,  0.0f, -1.0f,
@@ -483,6 +491,7 @@ int main() {
 		glUniform1f(glGetUniformLocation(renderProgram, "ao"), 1.0f);
 
 		//using map
+		/*
 		glActiveTexture(GL_TEXTURE3);
 		glBindTexture(GL_TEXTURE_2D, albedoMap);
 		glActiveTexture(GL_TEXTURE4);
@@ -490,7 +499,7 @@ int main() {
 		glActiveTexture(GL_TEXTURE5);
 		glBindTexture(GL_TEXTURE_2D, metallicMap);
 		glActiveTexture(GL_TEXTURE6);
-		glBindTexture(GL_TEXTURE_2D, roughnessMap);
+		glBindTexture(GL_TEXTURE_2D, roughnessMap);*/
 
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_CUBE_MAP, irradianceMap);
@@ -500,8 +509,19 @@ int main() {
 		glBindTexture(GL_TEXTURE_2D, brdfLUTTexture);
 
 		//Draw
-		glBindVertexArray(cubeVAO);
-		glDrawArrays(GL_TRIANGLES, 0, 36);
+		//glBindVertexArray(cubeVAO);
+		//glDrawArrays(GL_TRIANGLES, 0, 36);
+		if (page == 0)
+			loadedModel.Draw(renderProgram);
+		else {
+			glUseProgram(quadShader);
+			glUniform1i(glGetUniformLocation(quadShader, ("texture1")), 0);
+			glActiveTexture(GL_TEXTURE0);
+			glBindTexture(GL_TEXTURE_CUBE_MAP, loadedModel.getTexture(page));
+			glBindVertexArray(quadVAO);
+			glDrawArrays(GL_TRIANGLES, 0, 4);
+		}
+
 		/*
 		int nrRows = 7;
 		int nrCols = 7;
@@ -558,6 +578,14 @@ void processInput(GLFWwindow* window) {
 		cameraPos += cameraSpeed * cameraUp;
 	if (glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS)
 		cameraPos -= cameraSpeed * cameraUp;
+
+	if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
+		page--;
+	if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
+		page++;
+	if (page < 0)
+		page += MAX_PAGE;
+	page %= 8;
 }
 void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
 	if (firstMouse) {

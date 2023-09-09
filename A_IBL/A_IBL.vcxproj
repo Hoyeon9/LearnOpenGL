@@ -133,6 +133,7 @@
   <ItemGroup>
     <ClCompile Include="..\glad.c" />
     <ClCompile Include="..\stb_imp.cpp" />
+    <ClCompile Include="gltfLoader.c" />
     <ClCompile Include="ibl.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -146,6 +147,7 @@
     <None Include="quad.vs" />
     <None Include="render.fs" />
     <None Include="render.vs" />
+    <None Include="renderGLB.fs" />
     <None Include="renderMap.fs" />
     <None Include="skybox.fs" />
     <None Include="skybox.vs" />

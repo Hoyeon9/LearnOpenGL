@@ -27,6 +27,9 @@
     <ClCompile Include="..\stb_imp.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
+    <ClCompile Include="gltfLoader.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="render.fs">
@@ -58,6 +61,9 @@
     <None Include="quad.fs" />
     <None Include="quad.vs" />
     <None Include="renderMap.fs">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="renderGLB.fs">
       <Filter>Source Files</Filter>
     </None>
   </ItemGroup>

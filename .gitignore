@@ -3,6 +3,12 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+assimp-master/
+glfw-3.3.8/
+glm_x86/
+gltF-SDK-master/
+stb-master/
+
 # User-specific files
 *.rsuser
 *.suo

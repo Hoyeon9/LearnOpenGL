@@ -7,12 +7,13 @@
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 #include <mesh.h>
-#include<shader.h>
+#include <shader.h>
 #include <vector>
 #include <string>
 #include <stb_image.h>
 
 unsigned int TextureFromFile(const char* path, const string& directory);
+unsigned int TextureFromMemory(aiTexel* data, unsigned int len);
 
 class Model {
 public:
@@ -20,10 +21,13 @@ public:
 		loadModel(path);
 	}
 	void Draw(unsigned int shaderID);
+	unsigned int getTexture(int num);
 private:
+	const aiScene *scene;
 	vector<Mesh> meshes;
 	string directory;
 	vector<Texture> textures_loaded;
+	const aiTexture* embeddedTextures;
 
 	void loadModel(string path);
 	void processNode(aiNode* node, const aiScene* scene);
@@ -35,12 +39,16 @@ void Model::Draw(unsigned int shaderID) {
 		this->meshes[i].Draw(shaderID);
 	}
 }
+unsigned int Model::getTexture(int num) {
+	return 0;
+}
 void Model::loadModel(string path) {
 	cout << "Starting model loading...\n";
 	Assimp::Importer import;
 	const aiScene* scene = import.ReadFile(
 		path, aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_CalcTangentSpace
 	);
+	this->scene = scene;
 	if (!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode) {
 		cout << "ERROR::ASSIMP" << import.GetErrorString() << endl;
 		return;
@@ -57,9 +65,9 @@ void Model::processNode(aiNode* node, const aiScene* scene) {
 		aiMesh* mesh = scene->mMeshes[node->mMeshes[i]];
 		this->meshes.push_back(processMesh(mesh, scene));
 	}
-	cout<<"processNode_pushed all mesh of: "<< node->mName.C_Str() << endl;
+	cout<<"processNode_pushed all the meshes of: "<< node->mName.C_Str() << endl;
 	//same for its children
-	cout << "Call_processNode_for_children: " << node->mName.C_Str() << endl;
+	cout << "Call processNode for children of: " << node->mName.C_Str() << endl;
 	for (unsigned int i = 0; i < node->mNumChildren; i++) {
 		processNode(node->mChildren[i], scene);
 	}
@@ -104,15 +112,32 @@ Mesh Model::processMesh(aiMesh* mesh, const aiScene* scene) {
 	}
 
 	if (mesh->mMaterialIndex >= 0) {
+		cout << "Materials Loading..\n";
 		aiMaterial* material = scene->mMaterials[mesh->mMaterialIndex];
+		for (int i = aiTextureType_NONE; i <= aiTextureType_TRANSMISSION; i++) {
+			cout << (aiTextureType)i << ": ";
+			if (material->GetTextureCount((aiTextureType)i) > 0)
+				cout << material->GetTextureCount((aiTextureType)i);
+			else
+				cout << 0 << " ";
+			cout << endl;
+		}
+		
 		vector<Texture> diffuseMaps = loadMaterialtextures(material, aiTextureType_DIFFUSE, "texture_diffuse");
 		textures.insert(textures.end(), diffuseMaps.begin(), diffuseMaps.end());
-		vector<Texture> specularMaps = loadMaterialtextures(material, aiTextureType_SPECULAR, "texture_specular");
-		textures.insert(textures.end(), specularMaps.begin(), specularMaps.end());
-		//.obj form for normal texture
-		vector<Texture> normalMaps = loadMaterialtextures(material, aiTextureType_HEIGHT, "texture_normal");
+		vector<Texture> normalMaps = loadMaterialtextures(material, aiTextureType_NORMALS, "texture_normal");
 		textures.insert(textures.end(), normalMaps.begin(), normalMaps.end());
+		vector<Texture> lightMaps = loadMaterialtextures(material, aiTextureType_LIGHTMAP, "texture_lightMap");
+		textures.insert(textures.end(), lightMaps.begin(), lightMaps.end());
 
+		vector<Texture> albedoMaps = loadMaterialtextures(material, aiTextureType_BASE_COLOR, "texture_albedo");
+		textures.insert(textures.end(), albedoMaps.begin(), albedoMaps.end());
+		vector<Texture> metallicMaps = loadMaterialtextures(material, aiTextureType_METALNESS, "texture_metallic");
+		textures.insert(textures.end(), metallicMaps.begin(), metallicMaps.end());
+		vector<Texture> roughnessMaps = loadMaterialtextures(material, aiTextureType_DIFFUSE_ROUGHNESS, "texture_roughness");
+		textures.insert(textures.end(), roughnessMaps.begin(), roughnessMaps.end());
+		vector<Texture> unknownMaps = loadMaterialtextures(material, aiTextureType_UNKNOWN, "texture_unknown");
+		textures.insert(textures.end(), unknownMaps.begin(), unknownMaps.end());
 	}
 	
 	return Mesh(vertices, indices, textures);
@@ -120,12 +145,25 @@ Mesh Model::processMesh(aiMesh* mesh, const aiScene* scene) {
 vector<Texture> Model::loadMaterialtextures(aiMaterial* material, aiTextureType type, string typeName) {
 	vector<Texture> textures;
 	for (unsigned int i = 0; i < material->GetTextureCount(type); i++) {
-		cout << type << " " << i << endl;
+		cout << typeName << " " << i << endl;
 		aiString str;
 		material->GetTexture(type, i, &str);
+		
+		const aiTexture *extractedTex = this->scene->GetEmbeddedTexture(str.C_Str());
+		/*if (extractedTex->mHeight == 0) {
+			cout << "comppressed texture\n";
+			unsigned int format;
+			if (extractedTex->CheckFormat("png")) {
+				cout << "format: png\n";
+			} else if (extractedTex->CheckFormat("jpg")) {
+				cout << "format: jpg\n";
+			}
+			cout << "texture data: " << extractedTex->achFormatHint << ", " << extractedTex->mFilename.C_Str() << ", " << extractedTex->mHeight << ", " << extractedTex->mWidth << endl;
+		}*/
 		bool skip = false;
 		for (int j = 0; j < this->textures_loaded.size(); j++) {
 			if (std::strcmp(this->textures_loaded[j].path.data(), str.C_Str()) == 0) {
+				//std::strcmp(this->textures_loaded[j].path.data(), str.C_Str()) == 0
 				textures.push_back(this->textures_loaded[j]);
 				skip = true;
 				break;
@@ -133,11 +171,16 @@ vector<Texture> Model::loadMaterialtextures(aiMaterial* material, aiTextureType 
 		}
 		if (!skip) {
 			cout << "load texture from file: " << str.C_Str() <<endl;
+			aiTexel* data = extractedTex->pcData;
+			
 			Texture texture;
-			texture.id = TextureFromFile(str.C_Str(), this->directory);
+			//texture.id = TextureFromFile(str.C_Str(), this->directory);
+			texture.id = TextureFromMemory(data, extractedTex->mWidth + 1);
 			texture.type = typeName;
 			texture.path = str.C_Str();
 			textures.push_back(texture);
+
+			//this->textures_loaded.push_back(texture);
 		}
 	}
 	return textures;
@@ -171,5 +214,47 @@ unsigned int TextureFromFile(const char* path, const string& directory) {
 	stbi_image_free(data);  //free memory
 	return texture;
 }
+unsigned int TextureFromMemory(aiTexel* texelData, unsigned int len) {
+	unsigned char* stbiImageData = new unsigned char[len];
+	int components = 4;
+	for (int i = 0; i <= len / components; i++) {
+		stbiImageData[i * components + 0] = texelData[i].b;
+		stbiImageData[i * components + 1] = texelData[i].g;
+		stbiImageData[i * components + 2] = texelData[i].r;
+		stbiImageData[i * components + 3] = texelData[i].a;
+		//cout << (int)stbiImageData[i * 4 + 0] << " " << (int)stbiImageData[i * 4 + 1] << " " << (int)stbiImageData[i * 4 + 2] << " " << (int)stbiImageData[i * 4 + 3] << ", ";
+	}
+
+	int width, height, nrChannels;
+	unsigned char *data = stbi_load_from_memory(stbiImageData, len, &width, &height, &nrChannels, 0);
+	cout << "Texture's x, y, channels: " << (unsigned int)width << " " << (unsigned int)height << " " << (unsigned int)nrChannels << endl;
+
+	unsigned int texture;
+	glGenTextures(1, &texture);
+	glBindTexture(GL_TEXTURE_2D, texture);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+	GLenum format;
+	if (nrChannels == 1) format = GL_RED;
+	else if (nrChannels == 2) format = GL_RG;
+	else if (nrChannels == 3) format = GL_RGB;
+	else if (nrChannels == 4) format = GL_RGBA;
+	if (data) {
+		glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
+		glGenerateMipmap(GL_TEXTURE_2D);
+	}
+	else {
+		const char* errorMessage = stbi_failure_reason();
+		std::cout << "Failed to load texture::" << "Image loading error: "<< errorMessage <<  std::endl;
+	}
+	stbi_image_free(data);  //free memory
+	return texture;
+}
+//unsigned char* aiTexelLoader(aiTexel* data) {
+
+//}
 
 #endif

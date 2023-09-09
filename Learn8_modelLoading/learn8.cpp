@@ -65,8 +65,8 @@ int main() {
 	unsigned int shaderProgram = loadShader("ver8.vs", "frag8.fs");
 	stbi_set_flip_vertically_on_load(true);
 	//string modelPath = "backpack/backpack.obj";
-	//string modelPath = "spider/spider.obj";
-	string modelPath = "suz/suzanne.obj";
+	string modelPath = "spider/spider.obj";
+	//string modelPath = "suz/suzanne.obj";
 	//string modelPath = "others/teapot.obj";
 	//string modelPath = "others/tetrahedron.obj";
 	//string modelPath = "others/bones.obj";

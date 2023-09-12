@@ -9,6 +9,9 @@ glm_x86/
 gltF-SDK-master/
 stb-master/
 
+A_IBL/models/
+A_IBL/textures/
+
 # User-specific files
 *.rsuser
 *.suo

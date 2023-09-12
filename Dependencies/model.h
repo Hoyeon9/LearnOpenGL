@@ -1,6 +1,7 @@
 #ifndef MODEL_H
 #define MODEL_H
 
+#include <iomanip>
 #include <glad/glad.h>
 #include <glm/glm.hpp>
 #include <assimp/Importer.hpp>
@@ -21,7 +22,8 @@ public:
 		loadModel(path);
 	}
 	void Draw(unsigned int shaderID);
-	unsigned int getTexture(int num);
+	Texture getTexture(int num);
+	unsigned int getTextureNum();
 private:
 	const aiScene *scene;
 	vector<Mesh> meshes;
@@ -39,8 +41,11 @@ void Model::Draw(unsigned int shaderID) {
 		this->meshes[i].Draw(shaderID);
 	}
 }
-unsigned int Model::getTexture(int num) {
-	return 0;
+Texture Model::getTexture(int num) {
+	return this->textures_loaded[num];
+}
+unsigned int Model::getTextureNum() {
+	return this->textures_loaded.size();
 }
 void Model::loadModel(string path) {
 	cout << "Starting model loading...\n";
@@ -115,7 +120,7 @@ Mesh Model::processMesh(aiMesh* mesh, const aiScene* scene) {
 		cout << "Materials Loading..\n";
 		aiMaterial* material = scene->mMaterials[mesh->mMaterialIndex];
 		for (int i = aiTextureType_NONE; i <= aiTextureType_TRANSMISSION; i++) {
-			cout << (aiTextureType)i << ": ";
+			cout << setw(13) << left << textureNames[i] << ": ";
 			if (material->GetTextureCount((aiTextureType)i) > 0)
 				cout << material->GetTextureCount((aiTextureType)i);
 			else
@@ -123,21 +128,10 @@ Mesh Model::processMesh(aiMesh* mesh, const aiScene* scene) {
 			cout << endl;
 		}
 		
-		vector<Texture> diffuseMaps = loadMaterialtextures(material, aiTextureType_DIFFUSE, "texture_diffuse");
-		textures.insert(textures.end(), diffuseMaps.begin(), diffuseMaps.end());
-		vector<Texture> normalMaps = loadMaterialtextures(material, aiTextureType_NORMALS, "texture_normal");
-		textures.insert(textures.end(), normalMaps.begin(), normalMaps.end());
-		vector<Texture> lightMaps = loadMaterialtextures(material, aiTextureType_LIGHTMAP, "texture_lightMap");
-		textures.insert(textures.end(), lightMaps.begin(), lightMaps.end());
-
-		vector<Texture> albedoMaps = loadMaterialtextures(material, aiTextureType_BASE_COLOR, "texture_albedo");
-		textures.insert(textures.end(), albedoMaps.begin(), albedoMaps.end());
-		vector<Texture> metallicMaps = loadMaterialtextures(material, aiTextureType_METALNESS, "texture_metallic");
-		textures.insert(textures.end(), metallicMaps.begin(), metallicMaps.end());
-		vector<Texture> roughnessMaps = loadMaterialtextures(material, aiTextureType_DIFFUSE_ROUGHNESS, "texture_roughness");
-		textures.insert(textures.end(), roughnessMaps.begin(), roughnessMaps.end());
-		vector<Texture> unknownMaps = loadMaterialtextures(material, aiTextureType_UNKNOWN, "texture_unknown");
-		textures.insert(textures.end(), unknownMaps.begin(), unknownMaps.end());
+		for (int i = 0; i < 22; i++) {
+			vector<Texture> tempMaps = loadMaterialtextures(material, (aiTextureType)i, "texture_"+textureNames[i]);
+			textures.insert(textures.end(), tempMaps.begin(), tempMaps.end());
+		}
 	}
 	
 	return Mesh(vertices, indices, textures);
@@ -150,19 +144,10 @@ vector<Texture> Model::loadMaterialtextures(aiMaterial* material, aiTextureType 
 		material->GetTexture(type, i, &str);
 		
 		const aiTexture *extractedTex = this->scene->GetEmbeddedTexture(str.C_Str());
-		/*if (extractedTex->mHeight == 0) {
-			cout << "comppressed texture\n";
-			unsigned int format;
-			if (extractedTex->CheckFormat("png")) {
-				cout << "format: png\n";
-			} else if (extractedTex->CheckFormat("jpg")) {
-				cout << "format: jpg\n";
-			}
-			cout << "texture data: " << extractedTex->achFormatHint << ", " << extractedTex->mFilename.C_Str() << ", " << extractedTex->mHeight << ", " << extractedTex->mWidth << endl;
-		}*/
+
 		bool skip = false;
 		for (int j = 0; j < this->textures_loaded.size(); j++) {
-			if (std::strcmp(this->textures_loaded[j].path.data(), str.C_Str()) == 0) {
+			if (this->textures_loaded[j].type == typeName && std::strcmp(this->textures_loaded[j].path.data(), str.C_Str()) == 0) {
 				//std::strcmp(this->textures_loaded[j].path.data(), str.C_Str()) == 0
 				textures.push_back(this->textures_loaded[j]);
 				skip = true;
@@ -174,13 +159,12 @@ vector<Texture> Model::loadMaterialtextures(aiMaterial* material, aiTextureType 
 			aiTexel* data = extractedTex->pcData;
 			
 			Texture texture;
-			//texture.id = TextureFromFile(str.C_Str(), this->directory);
 			texture.id = TextureFromMemory(data, extractedTex->mWidth + 1);
 			texture.type = typeName;
 			texture.path = str.C_Str();
 			textures.push_back(texture);
 
-			//this->textures_loaded.push_back(texture);
+			this->textures_loaded.push_back(texture);
 		}
 	}
 	return textures;
@@ -217,12 +201,11 @@ unsigned int TextureFromFile(const char* path, const string& directory) {
 unsigned int TextureFromMemory(aiTexel* texelData, unsigned int len) {
 	unsigned char* stbiImageData = new unsigned char[len];
 	int components = 4;
-	for (int i = 0; i <= len / components; i++) {
+	for (int i = 0; i < len / components; i++) {
 		stbiImageData[i * components + 0] = texelData[i].b;
 		stbiImageData[i * components + 1] = texelData[i].g;
 		stbiImageData[i * components + 2] = texelData[i].r;
 		stbiImageData[i * components + 3] = texelData[i].a;
-		//cout << (int)stbiImageData[i * 4 + 0] << " " << (int)stbiImageData[i * 4 + 1] << " " << (int)stbiImageData[i * 4 + 2] << " " << (int)stbiImageData[i * 4 + 3] << ", ";
 	}
 
 	int width, height, nrChannels;

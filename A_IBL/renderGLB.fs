@@ -11,6 +11,7 @@ struct Material{
 	sampler2D texture_albedo1;
 	sampler2D texture_metallic1;
 	sampler2D texture_roughness1;
+	sampler2D texture_emissive1;
 };
 //uniform sampler2D albedoMap;
 //uniform sampler2D normalMap;
@@ -25,7 +26,7 @@ uniform vec3 camView;
 uniform Material material;
   
 
-uniform float ao;
+//uniform float ao;
 //uniform vec3 F0;
 
 uniform samplerCube irradianceMap;
@@ -43,10 +44,10 @@ vec3 getNormalFromMap();
 
 void main()
 {
-    vec3 albedo = pow(texture(material.texture_albedo1, TexCoords).rgb, vec3(2.2));
-    float metallic = texture(material.texture_metallic1, TexCoords).r * 0.1;
-    float roughness = texture(material.texture_roughness1, TexCoords).r;
-    //float ao = texture(aoMap, TexCoords).r;
+    vec3 albedo = pow(texture(material.texture_diffuse1, TexCoords).rgb, vec3(2.2));
+    float metallic = texture(material.texture_metallic1, TexCoords).r;
+    float roughness = texture(material.texture_roughness1, TexCoords).g;
+    float ao = 1.0f;//texture(material.texture_metallic1, TexCoords).r;
 
     vec3 N = getNormalFromMap();//normalize(Normal); 
     vec3 V = normalize(camPos + normalize(camView) * 0.3 - WorldPos);
@@ -76,7 +77,7 @@ void main()
     // HDR tonemapping
     color = color / (color + vec3(1.0));
     // gamma correct
-    color = pow(color, vec3(1.0/2.2)); 
+    color = pow(color, vec3(1.0/2.2));
 
     FragColor = vec4(color, 1.0f);
 }

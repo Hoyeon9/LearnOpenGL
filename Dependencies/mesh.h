@@ -10,6 +10,12 @@
 #include <vector>
 using namespace std;
 
+const string textureNames[22] = {
+	"none",	"diffuse", "specular", "ambient", "emissive", "height", "normal", "shininess",	"opacity",
+	"displacement", "lightmap", "reflection", "albedo", "normal_camera", "emission",
+	"metallic", "roughness", "ao", "unknown", "sheen", "clearcoat", "transmission"
+};
+
 struct Vertex {
 	glm::vec3 Position;
 	glm::vec3 Normal;
@@ -64,30 +70,19 @@ void Mesh::setupMesh() {
 	glBindVertexArray(0);
 }
 void Mesh::Draw(unsigned int shaderID) {
-	unsigned int ctnArr[6] = {1,1,1,1,1,1};
-	/*
-	unsigned int difCtn = 1;
-	unsigned int specCtn = 1;
-	unsigned int normCtn = 1;
-	unsigned int albedoCtn = 1;
-	unsigned int metalCtn = 1;
-	unsigned int roughCtn = 1;*/
+	unsigned int ctnArr[22];
+	for (int i = 0; i < 22; i++) {
+		ctnArr[i] = 1;
+	}
+
 	for (int i = 0; i < this->textures.size(); i++) {
 		glActiveTexture(GL_TEXTURE3 + i);
 		string number;
 		string name = this->textures[i].type;
-		if (name == "texture_diffuse")
-			number = std::to_string(ctnArr[0]++);
-		else if (name == "texture_specular")
-			number = std::to_string(ctnArr[1]++);
-		else if (name == "texture_normal")
-			number = std::to_string(ctnArr[2]++);
-		else if (name == "texture_albedo")
-			number = std::to_string(ctnArr[3]++);
-		else if (name == "texture_metallic")
-			number = std::to_string(ctnArr[4]++);
-		else if (name == "texture_roughness")
-			number = std::to_string(ctnArr[5]++);
+		for (int i = 0; i < 22; i++) {
+			if(name == "texture_"+textureNames[i])
+				number = std::to_string(ctnArr[i]++);
+		}
 		glUniform1i(glGetUniformLocation(shaderID, ("material."+name + number).c_str()), 3 + i);
 		glBindTexture(GL_TEXTURE_2D, this->textures[i].id);
 	}

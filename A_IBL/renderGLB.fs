@@ -45,9 +45,10 @@ vec3 getNormalFromMap();
 void main()
 {
     vec3 albedo = pow(texture(material.texture_diffuse1, TexCoords).rgb, vec3(2.2));
-    float metallic = texture(material.texture_metallic1, TexCoords).r;
+    float metallic = texture(material.texture_metallic1, TexCoords).b;
     float roughness = texture(material.texture_roughness1, TexCoords).g;
-    float ao = 1.0f;//texture(material.texture_metallic1, TexCoords).r;
+    float ao = texture(material.texture_metallic1, TexCoords).r;
+    
 
     vec3 N = getNormalFromMap();//normalize(Normal); 
     vec3 V = normalize(camPos + normalize(camView) * 0.3 - WorldPos);
@@ -78,6 +79,11 @@ void main()
     color = color / (color + vec3(1.0));
     // gamma correct
     color = pow(color, vec3(1.0/2.2));
+
+    //color = texture(material.texture_metallic1, TexCoords).rgb;
+    vec3 emissive;
+    
+    
 
     FragColor = vec4(color, 1.0f);
 }

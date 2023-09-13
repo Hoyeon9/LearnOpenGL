@@ -132,11 +132,16 @@ vector<Texture> Model::loadMaterialtextures(aiMaterial* material, aiTextureType 
 			}
 		}
 		if (!skip) {
-			cout << "load texture from file: " << str.C_Str() <<endl;
+			string tempPath = str.C_Str();
+			if (tempPath.find('\\') != string::npos){
+				tempPath = tempPath.substr(tempPath.find_last_of("\\"));
+				tempPath = "." + tempPath;
+			}
+			cout << "load texture from file: " << tempPath <<endl;
 			Texture texture;
-			texture.id = TextureFromFile(str.C_Str(), this->directory);
+			texture.id = TextureFromFile(tempPath.c_str(), this->directory);
 			texture.type = typeName;
-			texture.path = str.C_Str();
+			texture.path = tempPath;
 			textures.push_back(texture);
 		}
 	}

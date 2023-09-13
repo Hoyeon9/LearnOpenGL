@@ -81,14 +81,14 @@ int main() {
 	glUniform1i(glGetUniformLocation(renderProgram, ("prefilterMap")), 1);
 	glUniform1i(glGetUniformLocation(renderProgram, ("brdfLUT")), 2);
 	//using map
-	glUniform1i(glGetUniformLocation(renderProgram, ("material.texture_albedo1")), 3);
+	/*glUniform1i(glGetUniformLocation(renderProgram, ("material.texture_albedo1")), 3);
 	glUniform1i(glGetUniformLocation(renderProgram, ("material.texture_normal1")), 4);
 	glUniform1i(glGetUniformLocation(renderProgram, ("material.texture_metallic1")), 5);
-	glUniform1i(glGetUniformLocation(renderProgram, ("material.texture_roughness1")), 6);
+	glUniform1i(glGetUniformLocation(renderProgram, ("material.texture_roughness1")), 6);*/
 	//glUniform1i(glGetUniformLocation(renderProgram, ("aoMap")), 7);
 
-	
-	/*string mapPath = "textures/gold";
+	/*
+	string mapPath = "models/stone";
 	unsigned int albedoMap = loadTexture((mapPath + "/albedo.png").c_str());
 	cout << "albedo\n";
 	unsigned int normalMap = loadTexture((mapPath + "/normal.png").c_str());
@@ -99,7 +99,7 @@ int main() {
 	cout << "roughness\n";
 	//unsigned int aoMap = loadTexture((mapPath + "/ao.png").c_str());*/
 
-	string modelPath = "models/1/B07B4M2BC1.glb";
+	string modelPath = "models/0/B01LR5RSG0.glb";
 	Model loadedModel = Model(modelPath);
 	max_page = loadedModel.getTextureNum();
 	cout << max_page << " max pages\n";
@@ -466,16 +466,13 @@ int main() {
 		//Draw skybox----------------------
 		glDepthFunc(GL_LEQUAL);
 		glUseProgram(skyboxProgram);
-		//glUseProgram(quadShader);
 		glUniformMatrix4fv(glGetUniformLocation(skyboxProgram, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
 		glUniformMatrix4fv(glGetUniformLocation(skyboxProgram, "view"), 1, GL_FALSE, glm::value_ptr(view));
 
 		//Draw cube
 		glBindVertexArray(skyboxVAO);
-		//glBindVertexArray(quadVAO);
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_CUBE_MAP, envCubemap);
-		//glBindTexture(GL_TEXTURE_2D, brdfLUTTexture);
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 		glDepthFunc(GL_LESS);
 		//--------skybox----------------------
@@ -496,8 +493,8 @@ int main() {
 		glUniform1f(glGetUniformLocation(renderProgram, "ao"), 1.0f);
 
 		//using map
-		/*
-		glActiveTexture(GL_TEXTURE3);
+		
+		/*glActiveTexture(GL_TEXTURE3);
 		glBindTexture(GL_TEXTURE_2D, albedoMap);
 		glActiveTexture(GL_TEXTURE4);
 		glBindTexture(GL_TEXTURE_2D, normalMap);
@@ -517,6 +514,7 @@ int main() {
 		//glBindVertexArray(cubeVAO);
 		//glDrawArrays(GL_TRIANGLES, 0, 36);
 		
+		loadedModel.Draw(renderProgram);
 		if (page == 0)
 			loadedModel.Draw(renderProgram);
 		else {
@@ -561,10 +559,8 @@ int main() {
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	}
-
 	glDeleteProgram(equiProgram);
 	glDeleteBuffers(1, &cubeVAO);
-
 	glfwTerminate();
 	return 0;
 }

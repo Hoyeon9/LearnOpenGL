@@ -101,7 +101,7 @@ int main() {
 	cout << "roughness\n";
 	//unsigned int aoMap = loadTexture((mapPath + "/ao.png").c_str());*/
 
-	string modelPath = "models/0/B00WRDS8H0.glb";
+	string modelPath = "models/W/B074KLRCPW.glb";
 	Model loadedModel = Model(modelPath);
 	max_page = loadedModel.getTextureNum();
 	cout << max_page << " max pages\n";
@@ -240,7 +240,7 @@ int main() {
 	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2 * sizeof(float)));
 
 	//HDR to cubemap----------------------------------------------------
-	unsigned int equiTexture = loadHDR("hdr/moonless_golf.hdr");
+	unsigned int equiTexture = loadHDR("hdr/office.hdr");
 
 	glUseProgram(equiProgram);
 	glUniform1i(glGetUniformLocation(equiProgram, ("equirectangularMap")), 0);
@@ -435,6 +435,8 @@ int main() {
 	
 	//glEnable(GL_CULL_FACE);
 	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	//To original size
 	int scrWidth, scrHeight;
@@ -443,14 +445,14 @@ int main() {
 
 	//lights
 	glm::vec3 lightPositions[] = {
-		glm::vec3(-3.0f,  3.0f, 3.0f),
-		glm::vec3(3.0f,  3.0f, 3.0f),
+		glm::vec3(-10.0f,  10.0f, 10.0f),
+		glm::vec3(10.0f,  10.0f, 10.0f),
 		glm::vec3(-10.0f, -10.0f, 10.0f),
 		glm::vec3(10.0f, -10.0f, 10.0f),
 	};
 	glm::vec3 lightColors[] = {
-		glm::vec3(0.0f, 300.0f, 300.0f),
-		glm::vec3(300.0f, 300.0f, 0.0f),
+		glm::vec3(300.0f, 300.0f, 300.0f),
+		glm::vec3(300.0f, 300.0f, 300.0f),
 		glm::vec3(300.0f, 300.0f, 300.0f),
 		glm::vec3(300.0f, 300.0f, 300.0f)
 	};

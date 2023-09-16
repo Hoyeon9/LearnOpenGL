@@ -14,7 +14,7 @@
 #include <stb_image.h>
 
 unsigned int TextureFromFile(const char* path, const string& directory);
-unsigned int TextureFromMemory(aiTexel* data, unsigned int len);
+unsigned int TextureFromMemory(aiTexel* data, unsigned int len, int *channels);
 
 class Model {
 public:
@@ -149,7 +149,6 @@ vector<Texture> Model::loadMaterialtextures(aiMaterial* material, aiTextureType 
 		bool skip = false;
 		for (int j = 0; j < this->textures_loaded.size(); j++) {
 			if (this->textures_loaded[j].type == typeName && std::strcmp(this->textures_loaded[j].path.data(), str.C_Str()) == 0) {
-				//std::strcmp(this->textures_loaded[j].path.data(), str.C_Str()) == 0
 				textures.push_back(this->textures_loaded[j]);
 				skip = true;
 				break;
@@ -160,9 +159,11 @@ vector<Texture> Model::loadMaterialtextures(aiMaterial* material, aiTextureType 
 			aiTexel* data = extractedTex->pcData;
 			
 			Texture texture;
-			texture.id = TextureFromMemory(data, extractedTex->mWidth + 1);
+			int channels;
+			texture.id = TextureFromMemory(data, extractedTex->mWidth + 1, &channels);
 			texture.type = typeName;
 			texture.path = str.C_Str();
+			texture.channels = channels;
 			textures.push_back(texture);
 
 			this->textures_loaded.push_back(texture);
@@ -199,7 +200,7 @@ unsigned int TextureFromFile(const char* path, const string& directory) {
 	stbi_image_free(data);  //free memory
 	return texture;
 }
-unsigned int TextureFromMemory(aiTexel* texelData, unsigned int len) {
+unsigned int TextureFromMemory(aiTexel* texelData, unsigned int len, int *channels) {
 	unsigned char* stbiImageData = new unsigned char[len];
 	int components = 4;
 	for (int i = 0; i < len / components; i++) {
@@ -212,6 +213,7 @@ unsigned int TextureFromMemory(aiTexel* texelData, unsigned int len) {
 	int width, height, nrChannels;
 	unsigned char *data = stbi_load_from_memory(stbiImageData, len, &width, &height, &nrChannels, 0);
 	cout << "Texture's x, y, channels: " << (unsigned int)width << " " << (unsigned int)height << " " << (unsigned int)nrChannels << endl;
+	*channels = nrChannels;
 
 	unsigned int texture;
 	glGenTextures(1, &texture);

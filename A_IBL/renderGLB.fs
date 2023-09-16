@@ -27,6 +27,7 @@ uniform Material material;
 uniform vec3 lightPositions[4];
 uniform vec3 lightColors[4];
 uniform int lightNum;
+uniform int albedoChannels;
   
 
 //uniform float ao;
@@ -108,10 +109,11 @@ void main()
 
     //color = texture(material.texture_metallic1, TexCoords).rgb;
     vec3 emissive;
-    
-    
 
-    FragColor = vec4(color, 1.0f);
+    if(albedoChannels == 3)
+        FragColor = vec4(color, 1.0f);
+    else if(albedoChannels == 4)
+        FragColor = vec4(color, texture(material.texture_diffuse1, TexCoords).a);
 }
 
 vec3 FresnelSchlick(float cosTheta, vec3 F0)

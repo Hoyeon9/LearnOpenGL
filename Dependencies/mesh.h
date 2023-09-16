@@ -26,6 +26,7 @@ struct Texture {
 	unsigned int id;
 	string type;
 	string path;
+	int channels;
 };
 
 class Mesh {
@@ -82,9 +83,11 @@ void Mesh::Draw(unsigned int shaderID) {
 		glActiveTexture(GL_TEXTURE3 + i);
 		string number;
 		string name = this->textures[i].type;
-		for (int i = 0; i < 22; i++) {
-			if(name == "texture_"+textureNames[i])
-				number = std::to_string(ctnArr[i]++);
+		for (int j = 0; j < 22; j++) {
+			if(name == "texture_"+textureNames[j])
+				number = std::to_string(ctnArr[j]++);
+			if (name == "texture_diffuse")
+				glUniform1i(glGetUniformLocation(shaderID, "albedoChannels"), this->textures[i].channels);
 		}
 		glUniform1i(glGetUniformLocation(shaderID, ("material."+name + number).c_str()), 3 + i);
 		glBindTexture(GL_TEXTURE_2D, this->textures[i].id);

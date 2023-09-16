@@ -12,6 +12,7 @@ stb-master/
 A_IBL/models/
 A_IBL/textures/
 A_IBL/hdr/
+Learn8_modelLoading/models/
 
 # User-specific files
 *.rsuser

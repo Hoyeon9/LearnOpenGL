@@ -73,6 +73,8 @@ int main() {
 	unsigned int skyboxProgram = loadShader("skybox.vs", "skybox.fs");
 	unsigned int quadShader = loadShader("quad.vs", "quad.fs");
 
+	unsigned int lightShader = loadShader("lightVer.vs", "lightFrag.fs");
+
 	//unsigned int renderProgram = loadShader("render.vs", "render.fs");
 	//unsigned int renderProgram = loadShader("render.vs", "renderMap.fs");
 	unsigned int renderProgram = loadShader("render.vs", "renderGLB.fs");
@@ -99,7 +101,7 @@ int main() {
 	cout << "roughness\n";
 	//unsigned int aoMap = loadTexture((mapPath + "/ao.png").c_str());*/
 
-	string modelPath = "models/0/B01LR5RSG0.glb";
+	string modelPath = "models/0/B00WRDS8H0.glb";
 	Model loadedModel = Model(modelPath);
 	max_page = loadedModel.getTextureNum();
 	cout << max_page << " max pages\n";
@@ -238,7 +240,7 @@ int main() {
 	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2 * sizeof(float)));
 
 	//HDR to cubemap----------------------------------------------------
-	unsigned int equiTexture = loadHDR("sample_hdr.hdr");
+	unsigned int equiTexture = loadHDR("hdr/moonless_golf.hdr");
 
 	glUseProgram(equiProgram);
 	glUniform1i(glGetUniformLocation(equiProgram, ("equirectangularMap")), 0);
@@ -439,6 +441,20 @@ int main() {
 	glfwGetFramebufferSize(window, &scrWidth, &scrHeight);
 	glViewport(0, 0, scrWidth, scrHeight);
 
+	//lights
+	glm::vec3 lightPositions[] = {
+		glm::vec3(-3.0f,  3.0f, 3.0f),
+		glm::vec3(3.0f,  3.0f, 3.0f),
+		glm::vec3(-10.0f, -10.0f, 10.0f),
+		glm::vec3(10.0f, -10.0f, 10.0f),
+	};
+	glm::vec3 lightColors[] = {
+		glm::vec3(0.0f, 300.0f, 300.0f),
+		glm::vec3(300.0f, 300.0f, 0.0f),
+		glm::vec3(300.0f, 300.0f, 300.0f),
+		glm::vec3(300.0f, 300.0f, 300.0f)
+	};
+
 	std::cout << "Main Loop---------------------------------------\n";
 	int currentPage = 0;
 	while (!glfwWindowShouldClose(window)) {
@@ -450,7 +466,7 @@ int main() {
 		lastFrame = currentFrame;
 		
 
-		glClearColor(0.3f, 0.3f, 0.3f, 1.0f);
+		glClearColor(0.6f, 0.6f, 0.6f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		//rendering part
@@ -484,6 +500,26 @@ int main() {
 		glUniform3fv(glGetUniformLocation(renderProgram, "camPos"), 1, glm::value_ptr(cameraPos));
 		glUniform3fv(glGetUniformLocation(renderProgram, "camView"), 1, glm::value_ptr(cameraFront));
 		glUniformMatrix3fv(glGetUniformLocation(renderProgram, "normalMatrix"), 1, GL_FALSE, glm::value_ptr(glm::transpose(glm::inverse(glm::mat3(model)))));
+		
+		//light sources
+		glUniform1i(glGetUniformLocation(renderProgram, "lightNum"), sizeof(lightPositions) / sizeof(lightPositions[0]));
+		for (int i = 0; i < sizeof(lightPositions) / sizeof(lightPositions[0]); i++) {
+			model = glm::mat4(1.0f);
+			model = glm::translate(model, lightPositions[i]);
+			model = glm::scale(model, glm::vec3(0.3f));
+
+			glUseProgram(lightShader);
+			glUniformMatrix4fv(glGetUniformLocation(lightShader, "mvp"), 1, GL_FALSE, glm::value_ptr(projection * view * model));
+			glUniform3fv(glGetUniformLocation(lightShader, "lightColor"), 1, glm::value_ptr(lightColors[i]));
+			glBindVertexArray(sphereVAO);
+			glDrawElements(GL_TRIANGLE_STRIP, indexCount, GL_UNSIGNED_INT, 0);
+
+			glUseProgram(renderProgram);
+			//glm::vec3 newPos = glm::vec3(cos(currentFrame * 3) * 10, 0.0, sin(currentFrame * 3) * 10);
+			glUniform3fv(glGetUniformLocation(renderProgram, ("lightPositions[" + to_string(i) + "]").c_str()), 1, glm::value_ptr(lightPositions[i]));;
+			glUniform3fv(glGetUniformLocation(renderProgram, ("lightColors[" + to_string(i) + "]").c_str()), 1, glm::value_ptr(lightColors[i]));
+
+		}
 
 		
 		//glUniform3fv(glGetUniformLocation(renderProgram, "albedo"), 1, glm::value_ptr(glm::vec3(1.0f, 0.87f, 0.6f)));
@@ -514,7 +550,6 @@ int main() {
 		//glBindVertexArray(cubeVAO);
 		//glDrawArrays(GL_TRIANGLES, 0, 36);
 		
-		loadedModel.Draw(renderProgram);
 		if (page == 0)
 			loadedModel.Draw(renderProgram);
 		else {

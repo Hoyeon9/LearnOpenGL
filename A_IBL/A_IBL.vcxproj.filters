@@ -66,5 +66,7 @@
     <None Include="renderGLB.fs">
       <Filter>Source Files</Filter>
     </None>
+    <None Include="lightFrag.fs" />
+    <None Include="lightVer.vs" />
   </ItemGroup>
 </Project>

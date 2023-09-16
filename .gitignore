@@ -11,6 +11,7 @@ stb-master/
 
 A_IBL/models/
 A_IBL/textures/
+A_IBL/hdr/
 
 # User-specific files
 *.rsuser

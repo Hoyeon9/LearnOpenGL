@@ -140,6 +140,8 @@
     <None Include="hdr2cube.fs" />
     <None Include="hdr2cube.vs" />
     <None Include="irradiance.fs" />
+    <None Include="lightFrag.fs" />
+    <None Include="lightVer.vs" />
     <None Include="preBRDF.fs" />
     <None Include="preBRDF.vs" />
     <None Include="prefilter.fs" />

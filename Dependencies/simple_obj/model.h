@@ -143,6 +143,8 @@ vector<Texture> Model::loadMaterialtextures(aiMaterial* material, aiTextureType 
 			texture.type = typeName;
 			texture.path = tempPath;
 			textures.push_back(texture);
+
+			this->textures_loaded.push_back(texture);
 		}
 	}
 	return textures;

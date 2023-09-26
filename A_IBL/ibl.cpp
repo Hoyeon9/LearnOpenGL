@@ -20,7 +20,7 @@ GLuint loadTexture(char const* texPath);
 GLuint loadHDR(char const* texPath);
 void makeSphere(unsigned int& sphereVAO, unsigned int& indexCount);
 
-glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
+glm::vec3 cameraPos = glm::vec3(0.0f, 1.0f, 1.5f);
 glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
 glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
 float deltaTime = 0.0f;
@@ -101,7 +101,7 @@ int main() {
 	cout << "roughness\n";
 	//unsigned int aoMap = loadTexture((mapPath + "/ao.png").c_str());*/
 
-	string modelPath = "models/W/B074KLRCPW.glb";
+	string modelPath = "models/0/B00XBC3BF0.glb";
 	Model loadedModel = Model(modelPath);
 	max_page = loadedModel.getTextureNum();
 	cout << max_page << " max pages\n";
@@ -451,10 +451,10 @@ int main() {
 		glm::vec3(10.0f, -10.0f, 10.0f),
 	};
 	glm::vec3 lightColors[] = {
-		glm::vec3(300.0f, 300.0f, 300.0f),
-		glm::vec3(300.0f, 300.0f, 300.0f),
-		glm::vec3(300.0f, 300.0f, 300.0f),
-		glm::vec3(300.0f, 300.0f, 300.0f)
+		glm::vec3(0.0f, 0.0f, 0.0f),
+		glm::vec3(0.0f, 0.0f, 0.0f),
+		glm::vec3(0.0f, 0.0f, 0.0f),
+		glm::vec3(0.0f, 0.0f, 0.0f)
 	};
 
 	std::cout << "Main Loop---------------------------------------\n";
